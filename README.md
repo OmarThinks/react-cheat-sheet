@@ -17,6 +17,7 @@ npm start
 Here we will create an app called **`sample-app`**
 
 ```bash
+npm install -g create-react-app
 npx create-react-app sample-app
 cd sample-app
 npm start
