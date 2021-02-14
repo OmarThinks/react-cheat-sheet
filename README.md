@@ -220,6 +220,8 @@ The result will be:
 
 
 
+
+
 ```JavaScript
 Product name is: Labtop
 Product price is: $200
