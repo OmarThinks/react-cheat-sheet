@@ -233,3 +233,35 @@ Product in stock is: true
 # 7) Handle state with events:
 When the state changes, the app will render again, and change the value in the
 frontend.
+
+<b>
+
+```JavaScript
+class App extends Component {
+    state = {
+        "name": "Labtop",
+        "price": 200,
+        "in_stock": true
+    }
+    notInStock = (e) => {
+        this.setState({
+            in_stock:false
+        })
+    }
+  render = () => {
+    return (
+      <div className="App">
+          <p>Product name is: {this.state.name}</p>
+          <p>Product price is: ${this.state.price}</p>
+          <p>Product in stock is: {this.state.in_stock.toString()}</p>
+          <button onClick={this.notInStock}>Not in stock</button>
+      </div>
+    );
+  }
+}
+```
+
+</b>
+
+On clicking the `Not in stock` button,
+the product will not be in stock.

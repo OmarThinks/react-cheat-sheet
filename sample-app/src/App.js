@@ -12,7 +12,7 @@ class App extends Component {
         })
 
     }
-  render() {
+  render = () => {
     return (
       <div className="App">
           <p>Product name is: {this.state.name}</p>
