@@ -106,7 +106,7 @@ export default App;
 
 # 3) Helpful installations:
 
-In your browser: `React developer tools`
+In your browser: `React developer tools`  
 In Atom: `React`
 
 
@@ -148,3 +148,6 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 </b>
+
+
+# 5) Dynamic Inputs:
