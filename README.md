@@ -321,3 +321,53 @@ class App extends Component {
 
 
 # 9) Nesting components:
+
+Inside **`components/product.js`**:
+
+<b>
+
+```JavaScript
+import {Component} from "react"
+
+class Product extends Component {
+    render() {
+        return(
+            <div className="product">
+            <p>Name is: Labtop</p>
+            <p>Price is: $50</p>
+            <p>In Stock is: True</p>
+            </div>
+        )
+    }
+}
+
+export default Product;
+```
+
+</b>
+
+
+
+
+Inside **`App.js`**:
+
+
+
+<b>
+
+```JavaScript
+import {Component} from 'react';
+import Product from "./components/product"
+
+class App extends Component {
+  render = () => {
+    return (
+        <Product />
+    );
+  }
+}
+
+export default App;
+```
+
+</b>
