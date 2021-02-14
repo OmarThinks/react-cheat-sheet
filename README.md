@@ -227,3 +227,9 @@ Product in stock is: true
 ```
 
 </b>
+
+
+
+# 7) Handle state with events:
+When the state changes, the app will render again, and change the value in the
+frontend.
