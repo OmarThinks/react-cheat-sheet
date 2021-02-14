@@ -28,30 +28,74 @@ npm start
 
 
 
-## 2) Components:
-React is all about Components.
-- Create a directory called `components`
-- Inside of it create a file called `product.js`
+## 2) Hello, World!:
+
+
+
+<b>
+
+`index.html`
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+</b>
+
+
+
+
+
+
+<b>
+
+`index.js`
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+</b>
+
+
+
 
 
 Inside this file put this code:
 
 <b>
 
+`app.js`
 ```javascript
-import React, {Component} from "react"
+import {React,  Component } from 'react';
 
-class Product extends Component {
-    render() {
-        return(
-            <div>
-            <p>Name is: Labtop</p>
-            <p>Price is: $50</p>
-            <p>In Stock is: True</p>
-            </div>
-        )
-    }
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <p>Hello, World!</p>
+      </div>
+    );
+  }
 }
+
+export default App;
 ```
 
 </b>
