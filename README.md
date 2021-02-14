@@ -190,3 +190,38 @@ The number is: 46
 
 
 # 6) State:
+
+<b>
+
+```JavaScript
+class App extends Component {
+    state = {
+        "name": "Labtop",
+        "price": 200,
+        "in_stock": true
+    }
+  render() {
+    return (
+      <div className="App">
+          <p>Product name is: {this.state.name}</p>
+          <p>Product price is: ${this.state.price}</p>
+          <p>Product in stock is: {this.state.in_stock.toString()}</p>
+      </div>
+    );
+  }
+}
+```
+
+</b>
+
+The result will be:
+
+<b>
+
+```JavaScript
+Product name is: Labtop
+Product price is: $200
+Product in stock is: true
+```
+
+</b>
