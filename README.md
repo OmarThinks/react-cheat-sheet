@@ -177,7 +177,16 @@ render() {
 
 
 The result will be:
+
+<b>
+
 ```
 Hello, World!
 The number is: 46
 ```
+
+</b>
+
+
+
+# 6) State:
