@@ -2,7 +2,8 @@ import {Component} from "react"
 
 class Product extends Component {
     render() {
-        console.log(this.props)
+        console.log(this.props);
+        return(<div></div>);
         /*return(
             <div className="product">
             <p>Name is: Labtop</p>

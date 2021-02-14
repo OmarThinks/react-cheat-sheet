@@ -378,3 +378,52 @@ export default App;
 
 
 # 10) Props:
+
+
+
+Inside **`App.js`**:
+
+
+
+<b>
+
+```JavaScript
+import {Component} from 'react';
+import Product from "./components/product"
+
+class App extends Component {
+  render = () => {
+    return (
+        <Product name="Labtob" price={50.1} in_stock={true} />
+    );
+  }
+}
+
+export default App;
+```
+
+</b>
+
+
+
+
+
+
+Inside **`components/product.js`**:
+
+<b>
+
+```JavaScript
+import {Component} from "react"
+
+class Product extends Component {
+    render() {
+        console.log(this.props);
+        return(<div></div>);
+    }
+}
+
+export default Product;
+```
+
+</b>
