@@ -254,7 +254,7 @@ class App extends Component {
           <p>Product name is: {this.state.name}</p>
           <p>Product price is: ${this.state.price}</p>
           <p>Product in stock is: {this.state.in_stock.toString()}</p>
-          <button onClick={this.notInStock}>Not in stock</button>
+          <button onClick={()=>{this.notInStock()}}>Not in stock</button>
       </div>
     );
   }
@@ -265,3 +265,53 @@ class App extends Component {
 
 On clicking the `Not in stock` button,
 the product will not be in stock.
+
+
+
+
+
+
+
+
+
+
+
+<b>
+
+```JavaScript
+class App extends Component {
+    state = {
+        "name": "Labtop",
+        "price": 200,
+        "in_stock": true
+    }
+
+    handleChange = (e) =>{
+    this.setState({
+        "name":e.target.value
+    })
+    }
+    handleSubmit = (e) =>{
+        e.preventDefault();
+        console.log(this.state.name);
+    }
+  render = () => {
+    return (
+      <div className="App">
+          <p>Product name is: {this.state.name}</p>
+          <p>Product price is: ${this.state.price}</p>
+          <p>Product in stock is: {this.state.in_stock.toString()}</p>
+          <div>
+            <form onSubmit={(e)=>{this.handleSubmit(e)}}>
+                <input type="text"
+                onChange={(e)=>{this.handleChange(e)}}></input>
+                <button type="submit">Submit</button>
+            </form>
+          </div>
+      </div>
+    );
+  }
+}
+```
+
+</b>
