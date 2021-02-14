@@ -371,3 +371,10 @@ export default App;
 ```
 
 </b>
+
+
+
+
+
+
+# 10) Props:
