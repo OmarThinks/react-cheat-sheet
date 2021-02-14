@@ -151,3 +151,33 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 
 # 5) Dynamic Inputs:
+Inside the render method, you can use dynamic input like this:
+
+```JavaScript
+{}
+```
+The value inside these curly brackets will be
+
+Example:
+
+<b>
+
+```JavaScript
+render() {
+  return (
+    <div className="App">
+        <p>Hello, World!</p>
+        <p>The number is: {12+34}</p>
+    </div>
+  );
+}
+```
+
+</b>
+
+
+The result will be:
+```
+Hello, World!
+The number is: 46
+```
