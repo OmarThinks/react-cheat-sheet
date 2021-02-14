@@ -83,7 +83,7 @@ Inside this file put this code:
 
 `app.js`
 ```javascript
-import {React,  Component } from 'react';
+import {Component} from 'react';
 
 class App extends Component {
   render() {
@@ -99,3 +99,9 @@ export default App;
 ```
 
 </b>
+
+
+
+
+
+# 3) Helpful installations:
