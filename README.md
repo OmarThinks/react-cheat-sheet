@@ -218,6 +218,8 @@ The result will be:
 
 <b>
 
+
+
 ```JavaScript
 Product name is: Labtop
 Product price is: $200
