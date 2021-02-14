@@ -105,3 +105,6 @@ export default App;
 
 
 # 3) Helpful installations:
+
+In your browser: `React developer tools`
+In Atom: `React`
