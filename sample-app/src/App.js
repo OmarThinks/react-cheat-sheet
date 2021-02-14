@@ -6,12 +6,19 @@ class App extends Component {
         "price": 200,
         "in_stock": true
     }
+    notInStock = (e) => {
+        this.setState({
+            in_stock:false
+        })
+
+    }
   render() {
     return (
       <div className="App">
           <p>Product name is: {this.state.name}</p>
           <p>Product price is: ${this.state.price}</p>
           <p>Product in stock is: {this.state.in_stock.toString()}</p>
+          <button onClick={this.notInStock}>Not in stock</button>
       </div>
     );
   }
