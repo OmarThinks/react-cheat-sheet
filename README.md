@@ -108,3 +108,43 @@ export default App;
 
 In your browser: `React developer tools`
 In Atom: `React`
+
+
+# 4) Component:
+
+`App.js` in the previous examples is an example of a component.  
+### Notes:
+1. render method must have only one child  
+Example:
+```javascript
+render(){
+    <div></div>
+    <p></p>
+}
+```
+This will result is error.
+
+2.`class` is already a reserved name is JavaScript, so replace it with
+`className`
+
+### Rendering the component:
+
+<b>
+
+```JavaScript
+ReactDOM.render(< <Name of the class>,
+    document.getElementById('<id of the element>') />)
+```
+
+</b>
+
+Example:
+
+
+<b>
+
+```JavaScript
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+</b>
