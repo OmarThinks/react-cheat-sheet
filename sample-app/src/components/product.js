@@ -1,9 +1,9 @@
-import React, {Component} from "react"
+import {Component} from "react"
 
 class Product extends Component {
     render() {
         return(
-            <div>
+            <div className="product">
             <p>Name is: Labtop</p>
             <p>Price is: $50</p>
             <p>In Stock is: True</p>
@@ -11,3 +11,5 @@ class Product extends Component {
         )
     }
 }
+
+export default Product;
