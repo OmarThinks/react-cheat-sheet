@@ -1,10 +1,15 @@
 import {Component} from 'react';
-import Product from "./components/product"
+import Products from "./components/products"
 
 class App extends Component {
+    state = {products : [
+        {name: "Labtop", price:100, in_stock: true, id:1},
+        {name: "CPU", price:1, in_stock: false, id:2},
+        {name: "Fridge", price:50, in_stock: true, id:3},
+    ]}
   render = () => {
     return (
-        <Product name="Labtob" price={50.1} in_stock={true} />
+        <Products products={this.state.products} />
     );
   }
 }
