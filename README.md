@@ -427,3 +427,80 @@ export default Product;
 ```
 
 </b>
+
+
+
+
+
+
+
+# 11) Map list of Objects:
+
+
+Inside **`App.js`**:
+
+
+
+<b>
+
+```JavaScript
+import {Component} from 'react';
+import Products from "./components/products"
+
+class App extends Component {
+    state = {products : [
+        {name: "Labtop", price:100, in_stock: true, id:1},
+        {name: "CPU", price:1, in_stock: false, id:2},
+        {name: "Fridge", price:50, in_stock: true, id:3},
+    ]}
+  render = () => {
+    return (
+        <Products products={this.state.products} />
+    );
+  }
+}
+
+export default App;
+```
+
+</b>
+
+
+
+
+
+
+Inside **`components/products.js`**:
+
+<b>
+
+```JavaScript
+import {Component} from "react"
+
+class Products extends Component {
+    state = null
+    render() {
+        const products_list = this.props.products
+        const to_render = products_list.map(product => {
+            return(
+                <div className="product" key={product.id}>
+                    <p>Name is: {product.name}</p>
+                    <p>Price is: ${product.price}</p>
+                    <p>In Stock is: {product.in_stock.toString()}</p>
+                    <hr/>
+                </div>
+            );}
+        )
+        console.log(products_list)
+        return(
+            <div className="products_list">
+                { to_render }
+            </div>
+        )
+    }
+}
+
+export default Products;
+```
+
+</b>
