@@ -898,7 +898,7 @@ To avoid this, specify the class name in the selector.
 
 # 18) Life cycle methods:
 
-
+<b>
 
 ```JavaScript
 componentDidMount(){
@@ -922,3 +922,8 @@ componentWillUnmount() {
   // It runs when you update or mount the component
 }
 ```
+
+</b>
+
+
+# 19) Routing:
