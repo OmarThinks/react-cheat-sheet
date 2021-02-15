@@ -774,3 +774,89 @@ export default App;
 ```
 
 </b>
+
+
+
+
+
+# 16) Deleting from state:
+
+<b>
+
+**`components/products.js`**
+```JavaScript
+import {Component} from "react"
+
+const Products = (props) => {
+    const products_list = props.products
+    const to_render = products_list.map(product => {
+        if (product.in_stock) {
+            return(
+                <div className="product" key={product.id}>
+                    <p>Name is: {product.name}</p>
+                    <p>Price is: ${product.price}</p>
+                    <p>In Stock is: {product.in_stock.toString()}</p>
+                    <button onClick={()=>
+                        {props.deleteProduct(product.id)}}>Delete</button>
+                    <hr/>
+                </div>
+            );
+        } else {
+            return(null)
+        }
+    }
+    )
+    return(
+        <div className="products_list">
+            { to_render }
+        </div>
+    )
+}
+
+export default Products;
+```
+**`App.js`**
+```JavaScript
+import {Component} from 'react';
+import Products from "./components/products"
+import AddProduct from "./components/addProduct"
+
+class App extends Component {
+  state = {products : [
+        {name: "Labtop", price:100, in_stock: true, id:1},
+        {name: "CPU", price:1, in_stock: false, id:2},
+        {name: "Fridge", price:50, in_stock: true, id:3},
+    ]}
+  addProduct = (product) =>
+  {
+    product.id=Math.random();
+    let products = [...this.state.products, product];
+    this.setState({
+      products:products
+    });
+    console.log(product);
+  }
+  deleteProduct = (id) =>{
+    console.log(id);
+    let products = this.state.products.filter(product => {
+      return( product.id !==id);}
+    );
+    this.setState({
+      products:products
+    })
+  }
+  render = () => {
+    return (
+        <div>
+            <Products products={this.state.products}
+              deleteProduct= {this.deleteProduct}/>
+            <AddProduct addProduct={this.addProduct} />
+        </div>
+    );
+  }
+}
+
+export default App;
+```
+
+</b>
