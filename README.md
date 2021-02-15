@@ -932,3 +932,69 @@ componentWillUnmount() {
 
 
 # 19) Routing:
+
+<b>
+
+`components/about.js`
+```JavaScript
+import {Component} from 'react';
+
+class About extends Component {
+  render = () => {
+    return(<div> About </div>)
+  }
+}
+
+export default About
+```
+
+`components/contact.js`
+```JavaScript
+import {Component} from 'react';
+
+class Contact extends Component {
+  render = () => {
+    return(<div> Contact </div>)
+  }
+}
+
+export default Contact
+```
+
+`components/home.js`
+```JavaScript
+import {Component} from 'react';
+
+class Home extends Component {
+  render = () => {
+    return(<div> Home </div>)
+  }
+}
+
+export default Home
+```
+
+`components/navbar.js`
+```JavaScript
+import {Component} from 'react';
+
+class Navbar extends Component {
+  render = () => {
+    return(
+    <div>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </div>
+  )
+  }
+}
+
+export default Navbar
+```
+
+
+
+
+
+</b>
