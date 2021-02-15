@@ -549,14 +549,9 @@ There are 2 types of Components:
     <td>Use Functions to Create</td>
 </tr>
 
-
-
-
-
-
-
-
-
-
+<tr>
+    <td>Form</td>
+    <td>Navbar</td>
+</tr>
 
 </table>
