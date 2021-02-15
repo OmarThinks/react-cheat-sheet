@@ -519,4 +519,44 @@ export default Products;
 
 
 
-## 12) Stateless Components:
+## 12) UI Components:
+
+There are 2 types of Components:
+
+<table>
+<tr>
+    <th>Container Components</th>
+    <th>UI Components</th>
+</tr>
+
+<tr>
+    <td>Contain State</td>
+    <td>Don't Contain State</td>
+</tr>
+
+<tr>
+    <td>Contain Lifecycle Hooks</td>
+    <td>Recieve data from Props</td>
+</tr>
+
+<tr>
+    <td>Not Concerned with user Interface</td>
+    <td>Only concerned with UI</td>
+</tr>
+
+<tr>
+    <td>Use Classes to Create</td>
+    <td>Use Functions to Create</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+</table>
