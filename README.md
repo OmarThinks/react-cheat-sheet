@@ -860,3 +860,33 @@ export default App;
 ```
 
 </b>
+
+
+
+
+
+
+# 17) Using CSS:
+You can use it for every component.  
+Just import the CSS file itself.
+
+<b>
+
+```JavaScript
+import "./products.css"
+```
+
+</b>
+
+`Note: When importing a CSS file it will affect all the files.`  
+To avoid this, specify the class name in the selector.
+
+<b>
+
+```css
+.product{
+  //Style Goes here
+}
+```
+
+</b>
