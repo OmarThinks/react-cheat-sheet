@@ -901,6 +901,11 @@ To avoid this, specify the class name in the selector.
 <b>
 
 ```JavaScript
+constructor(){
+  console.log("Component Constucted");
+  // What happens when the component created
+}
+
 componentDidMount(){
   console.log("Component mounted");
   // What happens when the component loads
