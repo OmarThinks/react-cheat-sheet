@@ -1026,3 +1026,34 @@ export default App;
 ```
 
 </b>
+
+
+# 20) Routing without reloading to the server:
+
+<b>
+
+`components/navbar.js`
+```JavaScript
+import {Component} from 'react';
+import {Link, NavLink} from 'react-router-dom'
+
+class Navbar extends Component {
+  render = () => {
+    return(
+    <div>
+      <Link to="/">Home</Link>
+      <NavLink to="/contact">Contact</NavLink>
+      <NavLink to="/about">About</NavLink>
+    </div>
+  )
+  }
+}
+
+export default Navbar
+```
+
+</b>
+
+
+The difference between **`Link`** and **`NavLink`** is that
+**`NavLink` will add active attribute to active links**.
