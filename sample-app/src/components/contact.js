@@ -1,9 +1,11 @@
 import {Component} from 'react';
 
-class Contact extends Component {
-  render = () => {
-    return(<div> Contact </div>)
-  }
+const Contact = (props) =>{
+  console.log(props);
+  setTimeout(()=>{
+    props.history.push("/about")
+  }, 2000)
+  return(<div> Contact </div>)
 }
 
 export default Contact
