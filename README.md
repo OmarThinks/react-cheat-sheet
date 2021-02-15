@@ -890,3 +890,35 @@ To avoid this, specify the class name in the selector.
 ```
 
 </b>
+
+
+
+
+
+
+# 18) Life cycle methods:
+
+
+
+```JavaScript
+componentDidMount(){
+  console.log("Component mounted");
+  // What happens when the component loads
+}
+
+componentDidUpdate(prevProps, prevState, snapshot){
+  console.log("Component updated");
+  //Every time you update the component  
+}
+
+render(){
+  console.log("Component rendered");
+  // What happens when the component is
+}
+
+componentWillUnmount() {
+  console.log("Component is about to be loaded");
+  // This is the only required method
+  // It runs when you update or mount the component
+}
+```
