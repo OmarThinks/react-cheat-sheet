@@ -6,8 +6,10 @@ I am exploring react
 <b>
 
 ```bash
+npm install -g create-react-app
 npx create-react-app <application name>
 cd <application name>
+npm install react-router-dom --save
 npm start
 ```
 
@@ -20,6 +22,7 @@ Here we will create an app called **`sample-app`**
 npm install -g create-react-app
 npx create-react-app sample-app
 cd sample-app
+npm install react-router-dom --save
 npm start
 ```
 
