@@ -689,9 +689,88 @@ class App extends Component {
 export default App;
 ```
 
+</b>
 
 
 
 
+
+
+
+
+# 15) Modifying state with forms:
+
+<b>
+
+**`components/addProduct.js`**
+```JavaScript
+import {Component} from "react"
+
+class AddProduct extends Component {
+    state = {
+        name:"",
+        in_stock:true,
+        price:""
+    }
+    handleChange = (e) =>{
+        this.setState({
+            [e.target.id] : e.target.value
+        });
+    }
+    handleSubmit = (e) =>{
+        e.preventDefault();
+        //console.log(this.state);
+        this.props.addProduct(this.state);
+    }
+    render() {
+        return(
+            <div className="add_product">
+                <form onSubmit={this.handleSubmit}>
+                    Name: <input name="name" type="text" id="name"
+                    onChange={this.handleChange}/><br/>
+                    price: <input name="price" type="text" id="price"
+                    onChange={this.handleChange}/><br/>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        )
+    }
+}
+
+export default AddProduct;
+```
+**`App.js`**
+```JavaScript
+import {Component} from 'react';
+import Products from "./components/products"
+import AddProduct from "./components/addProduct"
+
+class App extends Component {
+  state = {products : [
+        {name: "Labtop", price:100, in_stock: true, id:1},
+        {name: "CPU", price:1, in_stock: false, id:2},
+        {name: "Fridge", price:50, in_stock: true, id:3},
+    ]}
+  addProduct = (product) =>
+  {
+    product.id=Math.random();
+    let products = [...this.state.products, product];
+    this.setState({
+      products:products
+    });
+    console.log(product);
+  }
+  render = () => {
+    return (
+        <div>
+            <Products products={this.state.products} />
+            <AddProduct addProduct={this.addProduct} />
+        </div>
+    );
+  }
+}
+
+export default App;
+```
 
 </b>

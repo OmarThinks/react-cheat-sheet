@@ -9,6 +9,8 @@ const Products = (props) => {
                     <p>Name is: {product.name}</p>
                     <p>Price is: ${product.price}</p>
                     <p>In Stock is: {product.in_stock.toString()}</p>
+                    <button onClick={()=>
+                        {props.deleteProduct(product.id)}}>Delete</button>
                     <hr/>
                 </div>
             );
