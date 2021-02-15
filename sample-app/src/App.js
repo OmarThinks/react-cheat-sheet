@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import Products from "./components/products"
+import AddProduct from "./components/addProduct"
 
 class App extends Component {
     state = {products : [
@@ -9,7 +10,10 @@ class App extends Component {
     ]}
   render = () => {
     return (
-        <Products products={this.state.products} />
+        <div>
+            <Products products={this.state.products} />
+            <AddProduct />
+        </div>
     );
   }
 }
