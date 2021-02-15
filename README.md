@@ -1057,3 +1057,7 @@ export default Navbar
 
 The difference between **`Link`** and **`NavLink`** is that
 **`NavLink` will add active attribute to active links**.
+
+
+
+# 21) Programmatic redirects:
