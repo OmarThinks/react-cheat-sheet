@@ -504,3 +504,19 @@ export default Products;
 ```
 
 </b>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 12) Stateless Components:
