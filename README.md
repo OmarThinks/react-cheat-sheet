@@ -1181,3 +1181,6 @@ axios({
 ```
 
 </b>
+
+
+# 25 Importing Images:
