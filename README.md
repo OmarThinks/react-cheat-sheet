@@ -10,6 +10,7 @@ npm install -g create-react-app
 npx create-react-app <application name>
 cd <application name>
 npm install react-router-dom --save
+npm install axios --save
 npm start
 ```
 
@@ -23,6 +24,7 @@ npm install -g create-react-app
 npx create-react-app sample-app
 cd sample-app
 npm install react-router-dom --save
+npm install axios --save
 npm start
 ```
 
@@ -1153,8 +1155,29 @@ parameterValue=this.props.match.<paramter name>;
 parameterValue=this.props.match.id;
 ```
 
+</b>
 
 
+# 24) axios:
+ With axios you can send HTTP requests.
 
+<b>
+
+```JavaScript
+axios({
+  method: 'post',
+  url: '/user/12345',
+  data: {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  }
+})
+.then(function (response) {
+    // Handle the response
+  });
+.catch(function (error){
+  // handle the error
+  })
+```
 
 </b>
