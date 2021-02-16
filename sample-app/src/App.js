@@ -5,9 +5,7 @@ import Contact from "./components/contact"
 import Home from "./components/home"
 import Navbar from "./components/navbar"
 
-
 class App extends Component {
-
   render = () => {
     return (
       <BrowserRouter>
