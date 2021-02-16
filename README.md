@@ -1120,3 +1120,41 @@ export default App;
 ```
 
 </b>
+
+
+# 23) Route Parameters:
+
+<b>
+Example:
+
+```
+127.0.0.1:3000/products/1
+```
+
+</b>
+
+Here `1` is the id of the product.
+
+<b>
+
+Defining the route parameter:
+```
+path="/products/:<parameter name>"
+```
+```HTML
+<Route path="/products/:id" component={ProductRoute} />
+```
+
+Receiving the parameter:
+```JavaScript
+parameterValue=this.props.match.<paramter name>;
+```
+```JavaScript
+parameterValue=this.props.match.id;
+```
+
+
+
+
+
+</b>
