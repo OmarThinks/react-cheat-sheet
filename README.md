@@ -1184,3 +1184,17 @@ axios({
 
 
 # 25 Importing Images:
+
+<b>
+
+```JavaScript
+import <TheImage> from "<image location>"
+<img src={<TheImage>} />
+```
+
+```JavaScript
+import Pokeball from "../pokeball.png"
+<img src={Pokeball} />
+```
+
+</b>
