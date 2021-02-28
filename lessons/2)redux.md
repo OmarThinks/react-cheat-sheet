@@ -54,6 +54,8 @@ const initState = {
 // This is the initialiazation state of redux store
 
 function myReducer(state = initState,action) {
+  console.log(state);
+  console.log(action);
 }
 // reduccer will be explained
 
