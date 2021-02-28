@@ -7,6 +7,18 @@ const initState = {
 }
 
 const todosReducer = (state = initState, action) => {
+	if (action.type === "DELETE_POST") {
+		//console.log(action);
+		//console.log("I will delete " + action.id.toString());
+		//console.log(state);
+		let newTodos = state.todos.filter((t) => {
+			return(t.id != action.id)})
+		console.log(newTodos);
+		return{
+			...state,
+			todos: newTodos
+		}
+	}
 	return state;
 }
 
