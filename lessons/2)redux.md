@@ -129,6 +129,58 @@ store.dispatch(post1);
 
 
 
+# 4) Reducers:
+
+
+<b>
+
+```Js
+function myReducer(state = initState,action) {
+  if (action.type == "ADD_TODO") {
+    return {
+      todos:[...state.todos, action.value],
+      posts:[...state.posts]
+    }
+  }
+  if (action.type == "ADD_POST") {
+    return {
+      todos:[...state.todos],
+      posts:[...state.posts, action.value]
+    }
+  }
+  if (action.type == "ADD_POST") {}
+}
+/* Dispatch actions */
+
+console.log(store.getState())
+
+export default App;
+```
+
+The return value of the reducer will be the new value of the state of the 
+store.
+
+</b>
+
+This will print:
+
+```js
+{
+posts: [ "I studied hard" ],
+todos: [ "Get Up", "Wash your face", "Study Hard", … ]
+​}
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
