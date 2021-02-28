@@ -8,7 +8,6 @@ import todosReducer from "./reducers/todos.js"
 
 const store = createStore(todosReducer);
 
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
