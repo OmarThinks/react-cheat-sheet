@@ -303,6 +303,54 @@ export default connect(mapStateToProps, mapDispatchToProps)(Home)
 
 
 
+## 6) Action creators:
+
+
+<b>
+
+
+
+
+
+
+
+
+
+`actions/postActions.js`
+```JavaScript
+const deletePost = (id) => {
+	return { type : "DELETE_POST" , id : id }
+}
+
+export { deletePost as deletePost}
+```
+
+
+
+
+
+`home.js`
+```JavaScript
+import {deletePost} from "../actions/postActions";
+
+/*
+Rest of the code
+*/
+const mapDispatchToProps = (dipatchMethod) => {
+	return {
+		deletePost : (id) => { dipatchMethod(deletePost(id))}
+	}
+}
+```
+
+
+
+
+
+
+
+
+</b>
 
 
 
