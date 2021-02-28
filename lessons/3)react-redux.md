@@ -16,7 +16,11 @@ But, as your application gets better, you will really need this.
 
 ```JavaScript
 const initState = {
-	todos:[]
+	todos:[
+		{id:1,value:"get up"},
+		{id:2,value:"study hard"},
+		{id:3,value:"get a job"},
+	]
 }
 
 const todosReducer = (state = initState, action) => {
@@ -53,15 +57,34 @@ const store = createStore(todosReducer);
 
 
 ReactDOM.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>,
   document.getElementById('root')
 );
 ```
 
 </b>
 
+
+
+
+
+
+## 3) provide the app with the store:
+
+```JavaScript
+ReactDOM.render(
+    <Provider store={store}> <App /> </Provider>,
+  document.getElementById('root')
+);
+```
+
+
+
+
+
+
+
+## 4) Mapping state to props:
 
 
 

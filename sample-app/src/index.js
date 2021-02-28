@@ -9,8 +9,6 @@ import todosReducer from "./reducers/todos.js"
 const store = createStore(todosReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Provider store={store}> <App /> </Provider>,
   document.getElementById('root')
 );

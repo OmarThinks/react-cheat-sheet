@@ -1,9 +1,33 @@
 import {Component} from 'react';
+import {connect} from "react-redux";
 
 class Home extends Component {
   render = () => {
-    return(<div> Home </div>)
-  }
+  	const todos = this.props.todos;
+
+  	console.log(todos);
+    //const todos = this.props.products
+    const to_render = todos.map(todo => {
+        return(
+            <div className="todo" key={todo.id}>
+                <p>ID is: {todo.id}</p>
+                <p>Value is: {todo.value}</p>
+                <hr/>
+            </div>
+        );}
+    )
+    console.log(to_render)
+    return(
+        <div className="todos_list">
+            { to_render }
+        </div>
+    )  }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+	return {
+		todos: state.todos
+	}
+}
+
+export default connect(mapStateToProps)(Home)
