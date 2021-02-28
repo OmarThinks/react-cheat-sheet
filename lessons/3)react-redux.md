@@ -91,14 +91,7 @@ ReactDOM.render(
 
 <b>
 
-
-
-
-
-
-
 `index.js`
-
 ```JavaScript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -118,15 +111,7 @@ ReactDOM.render(
 
 
 
-
-
-
-
-
-
-
 `App.js`
-
 ```JavaScript
 import {Component} from 'react';
 import Home from "./components/home"
@@ -146,44 +131,7 @@ export default App;
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 `home.js`
-
 ```JavaScript
 import {Component} from 'react';
 import {connect} from "react-redux";
@@ -217,8 +165,53 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(Home)
 ```
 
-
 </b>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 5) Dispatch to props:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
