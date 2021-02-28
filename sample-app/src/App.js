@@ -14,13 +14,13 @@ const initState = {
 function myReducer(state = initState,action) {
   if (action.type == "ADD_TODO") {
     return {
-      todos:[...state.todos, action.value],
-      posts:[...state.posts]
+      ...state,
+      todos:[...state.todos, action.value]
     }
   }
   if (action.type == "ADD_POST") {
     return {
-      todos:[...state.todos],
+      ...state,
       posts:[...state.posts, action.value]
     }
   }
@@ -52,14 +52,14 @@ store.dispatch(todo5);
 store.dispatch(post1);
 // Here we dipatch the actions
 
-/*
+
 store.subscribe(
   ()=>{
     console.log("State Updated");
-    //console.log(store.getState());
+    // This code will be executed every time the store is dispatched
   }
 )
-*/
+
 console.log(store.getState())
 
 class App extends Component {

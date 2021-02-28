@@ -138,13 +138,13 @@ store.dispatch(post1);
 function myReducer(state = initState,action) {
   if (action.type == "ADD_TODO") {
     return {
-      todos:[...state.todos, action.value],
-      posts:[...state.posts]
+      ...state,
+      todos:[...state.todos, action.value]
     }
   }
   if (action.type == "ADD_POST") {
     return {
-      todos:[...state.todos],
+      ...state,
       posts:[...state.posts, action.value]
     }
   }
@@ -153,6 +153,7 @@ function myReducer(state = initState,action) {
 /* Dispatch actions */
 
 console.log(store.getState())
+// This returns the value of the state of the store
 
 export default App;
 ```
@@ -172,6 +173,43 @@ todos: [ "Get Up", "Wash your face", "Study Hard", … ]
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 5) Subscribe:
+
+
+<b>
+
+```Js
+store.subscribe(
+  ()=>{
+    console.log("State Updated");
+    // This code will be executed every time the store is dispatched
+  }
+)
+```
+
+`subscribe` takes a function.  
+This function will be executed every time the store is dipatched.
+
+</b>
 
 
 
