@@ -71,7 +71,45 @@ ReactDOM.render(
 
 ## 3) provide the app with the store:
 
+
+<b>
+
 ```JavaScript
+ReactDOM.render(
+    <Provider store={store}> <App /> </Provider>,
+  document.getElementById('root')
+);
+```
+
+</b>
+
+
+
+
+
+## 4) Mapping state to props:
+
+<b>
+
+
+
+
+
+
+
+`index.js`
+
+```JavaScript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+import todosReducer from "./reducers/todos.js"
+
+const store = createStore(todosReducer);
+
 ReactDOM.render(
     <Provider store={store}> <App /> </Provider>,
   document.getElementById('root')
@@ -84,10 +122,103 @@ ReactDOM.render(
 
 
 
-## 4) Mapping state to props:
 
 
 
+`App.js`
+
+```JavaScript
+import {Component} from 'react';
+import Home from "./components/home"
+
+class App extends Component {
+  render = () => {
+    return (
+      <div className="App">
+        Hi!
+        <Home />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`home.js`
+
+```JavaScript
+import {Component} from 'react';
+import {connect} from "react-redux";
+
+class Home extends Component {
+  render = () => {
+  	const todos = this.props.todos;
+    const to_render = todos.map(todo => {
+        return(
+            <div className="todo" key={todo.id}>
+                <p>ID is: {todo.id}</p>
+                <p>Value is: {todo.value}</p>
+                <hr/>
+            </div>
+        );}
+    )
+    console.log(to_render)
+    return(
+        <div className="todos_list">
+            { to_render }
+        </div>
+    )  }
+}
+
+const mapStateToProps = (state) => {
+	return {
+		todos: state.todos
+	}
+}
+
+export default connect(mapStateToProps)(Home)
+```
+
+
+</b>
 
 
 

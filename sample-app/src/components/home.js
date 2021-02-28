@@ -4,9 +4,6 @@ import {connect} from "react-redux";
 class Home extends Component {
   render = () => {
   	const todos = this.props.todos;
-
-  	console.log(todos);
-    //const todos = this.props.products
     const to_render = todos.map(todo => {
         return(
             <div className="todo" key={todo.id}>
