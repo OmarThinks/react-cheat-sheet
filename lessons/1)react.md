@@ -1,4 +1,4 @@
-# react-cheat-sheet
+# 1) React:
 I am exploring react
 
 ## 1) Creating the react app:
