@@ -9,11 +9,26 @@ const initState = {
 }
 // This is the initialiazation state of redux store
 
+
+
 function myReducer(state = initState,action) {
-  console.log(state);
-  console.log(action);
+  if (action.type == "ADD_TODO") {
+    return {
+      todos:[...state.todos, action.value],
+      posts:[...state.posts]
+    }
+  }
+  if (action.type == "ADD_POST") {
+    return {
+      todos:[...state.todos],
+      posts:[...state.posts, action.value]
+    }
+  }
+  if (action.type == "ADD_POST") {}
 }
 // reduccer will be explained
+
+
 
 const store = createStore(myReducer);
 // The store, this is how we will use redux in the future
@@ -35,9 +50,17 @@ store.dispatch(todo4);
 store.dispatch(todo5);
 
 store.dispatch(post1);
-
 // Here we dipatch the actions
 
+/*
+store.subscribe(
+  ()=>{
+    console.log("State Updated");
+    //console.log(store.getState());
+  }
+)
+*/
+console.log(store.getState())
 
 class App extends Component {
   render = () => {
