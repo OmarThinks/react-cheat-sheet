@@ -16,12 +16,22 @@
 2. Link the component to the redux
 3. Subscribe changes of the components to the redux
 4. Decide that you want to take action
-5. Dispatch action
+5. Dispatch action (With the payload)
 6. Pass action to the reducer
 7. Reducer updates the central states
 
 
 
+## Installations:
+
+<b>
+
+```bash
+npm install --save redux
+npm install --save react-redux
+```
+
+</b>
 
 
 
