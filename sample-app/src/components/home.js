@@ -21,7 +21,6 @@ class Home extends Component {
             </div>
         );}
     )
-    //console.log(to_render)
     return(
         <div className="todos_list">
             { to_render }
