@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import {connect} from "react-redux";
+import {deletePost} from "../actions/postActions";
 
 class Home extends Component {
   handleDelete = (e) => {
@@ -34,8 +35,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dipatchMethod) => {
 	return {
-		deletePost : (id) => { dipatchMethod({type: "DELETE_POST", 
-			id: Number(id)})}
+		deletePost : (id) => { dipatchMethod(deletePost(id))}
 	}
 }
 
