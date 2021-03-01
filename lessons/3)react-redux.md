@@ -1,6 +1,200 @@
 # 3) React-Redux:
 
 
+<b>
+
+
+
+
+`actions/postActions.js`
+
+```JavaScript
+const deletePost = (id) => {
+  return { type : "DELETE_POST" , id : id }
+}
+
+export { deletePost as deletePost}
+```
+
+
+
+
+`src/reducers/todo.js`
+
+```JavaScript
+const initState = {
+  todos:[
+    {id:1,value:"get up"},
+    {id:2,value:"study hard"},
+    {id:3,value:"get a job"},
+  ]
+}
+
+const todosReducer = (state = initState, action) => {
+  if (action.type === "DELETE_POST") {
+    let newTodos = state.todos.filter((t) => {
+      return(t.id != action.id)})
+    console.log(newTodos);
+    return{
+      ...state,
+      todos: newTodos
+    }
+  }
+  return state;
+}
+
+export default todosReducer
+```
+
+
+
+
+
+
+`src/components/home.js`
+
+```JavaScript
+import {Component} from 'react';
+import {connect} from "react-redux";
+import {deletePost} from "../actions/postActions";
+
+class Home extends Component {
+  handleDelete = (e) => {
+    console.log(e.target);
+    this.props.deletePost(e.target.id);
+  }
+
+  render = () => {
+    //console.log(this.props);
+    const todos = this.props.todos;
+    const to_render = todos.map(todo => {
+        return(
+            <div className="todo" key={todo.id}>
+                <p>ID is: {todo.id}</p>
+                <p>Value is: {todo.value}</p>
+                <button onClick={(e)=>{this.handleDelete(e)}}
+                id={todo.id}> Delete Todo </button>
+                <hr/>
+            </div>
+        );}
+    )
+    return(
+        <div className="todos_list">
+            { to_render }
+        </div>
+    )  }
+}
+
+const mapStateToProps = (state) => {
+  return {todos: state.todos}
+}
+
+const mapDispatchToProps = (dipatchMethod) => {
+  return {
+    deletePost : (id) => { dipatchMethod(deletePost(id))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
+```
+
+
+
+
+
+
+
+`src/App.js`
+
+```JavaScript
+import {Component} from 'react';
+import Home from "./components/home"
+
+class App extends Component {
+  render = () => {
+    return (
+      <div className="App">
+        Hi!
+        <Home />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`src/index.js`
+
+```JavaScript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+import todosReducer from "./reducers/todos.js"
+
+const store = createStore(todosReducer);
+
+ReactDOM.render(
+    <Provider store={store}> <App /> </Provider>,
+  document.getElementById('root')
+);
+```
+
+
+
+
+
+
+
+</b>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 1) `/reducers` directory:
 
 It is a good practice to create a folder called `reducers`.  
