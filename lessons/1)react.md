@@ -925,12 +925,6 @@ render(){
   console.log("Component rendered");
   // What happens when the component is
 }
-
-componentWillUnmount() {
-  console.log("Component is about to be loaded");
-  // This is the only required method
-  // It runs when you update or mount the component
-}
 ```
 
 </b>
@@ -1167,6 +1161,8 @@ parameterValue=this.props.match.id;
 
 
 ```JavaScript
+const axios = require('axios');
+
 axios({
   method: 'post',
   url: '/user/12345',
