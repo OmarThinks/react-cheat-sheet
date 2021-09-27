@@ -151,17 +151,120 @@ const AddProductForm = ({addProduct}) => {
 export default AddProductForm;
 ```
 
-
-
-
-
-
-
-
 </b>
 
 
 
+
+
+
+
+
+# 3) useEffect:
+
+
+<b>
+
+
+**components/ProductList.js**
+
+```js
+import React,{useState, useEffect} from 'react';
+import { v4 as uuid } from 'uuid';
+import AddProductForm from './AddProductForm';
+
+const ProductsList = () => {
+    
+    const [products,setProducts]= useState(
+        [
+            {name:"CPU",    id: 1},
+            {name:"Labtop", id: 2},
+            {name:"Mobile", id: 3},
+        ]
+    );
+
+    const [salary, setSalary] = useState(25);
+    
+    const addProduct=(title)=>{
+        setProducts([...products,{name:title, id:uuid()}])
+    }
+
+    /*This will run in the first render, and only when
+    salary is updated*/
+    useEffect(()=>{
+        console.log(salary);
+    }, [salary]);
+    
+    /*This will run in the first render, and only when
+    products is updated*/
+    useEffect(()=>{
+        console.log(products);
+    }, [products]);
+
+    return ( 
+    <div className="prodcuts-list">
+        <ul>
+            {products.map(product=>{
+                return(<li key={product.id}>{product.name}</li>);
+            })}
+        </ul>
+        <AddProductForm addProduct={addProduct}/>
+        <div>
+            <button onClick={()=>{setSalary(salary+1)}}>Increase Salary: {salary}</button>
+        </div>
+    </div> );
+}
+ 
+export default ProductsList;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**components/AddProductForm.js**
+
+```js
+import React,{useState} from 'react';
+
+const AddProductForm = ({addProduct}) => {
+    
+    const [title,setTitle] = useState("");
+    
+    const submitForm=(e)=>{
+        e.preventDefault();
+        addProduct(title);
+        setTitle("");
+    }
+
+    return ( 
+        <form onSubmit={submitForm}>
+            <label>Product Name: </label>
+            <input type="text" name="name" 
+            value={title} onChange={(e)=>{
+                setTitle(e.target.value);
+            }}
+            required/>
+            <input type="submit" value="Create a Product"/>
+        </form>
+     );
+}
+ 
+export default AddProductForm;
+
+```
+
+</b>
 
 
 
