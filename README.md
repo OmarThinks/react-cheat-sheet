@@ -14,3 +14,7 @@
 <a href="lessons/3)react-redux.md">3) React-Redux</a>
 </h2>
 
+<h2>
+<a href="lessons/4)context-and-hooks.md">4) Context and Hooks</a>
+</h2>
+
