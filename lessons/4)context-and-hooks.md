@@ -211,7 +211,7 @@ import { ThemeContext } from '../contexts/ThemeContext';
 
 class ThemeToggle extends Component {
     static contextType = ThemeContext;
-    
+
     render() {
         console.log(this.context);
         const {toggleTheme}=this.context;
@@ -225,6 +225,95 @@ export default ThemeToggle;
 
 
 
+</b>
+
+
+
+
+
+
+
+
+
+
+# 4) Using Several Contexts:
+
+
+
+## 4-A) Creating a new Context (Nothing new here):
+
+<b>
+
+`contexts/AuthContext.js`
+
+```js
+import {createContext, Component} from 'react';
+
+export const AuthContext = createContext();
+
+class AuthContextProvider extends Component {
+    state = { 
+        isAuthenticated:false,
+    };
+
+    toggleAuth=()=>{
+        this.setState({isLightTheme:!this.state.isAuthenticated});
+    }
+
+    render() { 
+        return ( 
+        <AuthContext.Provider value={
+            {...this.state, toggleAuth:this.toggleAuth}}>
+            {this.props.children}
+        </AuthContext.Provider> );
+    }
+}
+ 
+export default AuthContextProvider;
+```
+
+
+
+
+
+
+
+## 4-B) Using Several Contexts:
+
+`App.js`
+
+```js
+import './App.css';
+import { Component } from 'react';
+import Main from './components/main';
+import NavBar from './components/navbar';
+
+import ThemeContextProvider from './contexts/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
+import  AuthContextProvider  from './contexts/AuthContext';
+
+class App extends Component {
+  state = {  }
+  render() { 
+      return(
+        <div id="root_div">
+          <ThemeContextProvider>
+            <AuthContextProvider>
+              <NavBar></NavBar>
+              <Main></Main>
+              <ThemeToggle/>
+            </AuthContextProvider>
+          </ThemeContextProvider>
+        </div>        
+     );
+  }
+}
+
+export default App;
+```
+
+
+
 
 
 
@@ -233,4 +322,3 @@ export default ThemeToggle;
 
 
 </b>
-
