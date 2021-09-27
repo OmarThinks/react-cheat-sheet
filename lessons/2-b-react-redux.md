@@ -1,4 +1,4 @@
-# 3) React-Redux:
+# 2-b) React-Redux:
 
 
 <b>

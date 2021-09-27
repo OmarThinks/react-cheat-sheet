@@ -1,20 +1,19 @@
 # React Cheat-Sheet
 
 
+# [1) React](lessons/1-react.md)
 
-<h2>
-<a href="lessons/1)react.md">1) React</a>
-</h2>
+# 2) Redux:
 
-<h2>
-<a href="lessons/2)redux.md">2) Redux</a>
-</h2>
+## [2-1) Redux](lessons/2-a-redux.md)
+## [2-2) React-Redux](lessons/2-b-react-redux.md)
 
-<h2>
-<a href="lessons/3)react-redux.md">3) React-Redux</a>
-</h2>
 
-<h2>
-<a href="lessons/4)context-and-hooks.md">4) Context and Hooks</a>
-</h2>
+
+# 3) Hooks and Context:
+
+
+## [3-1) Context](lessons/3-a-context.md)
+## [3-2) Hooks](lessons/3-b-hooks.md)
+
 
