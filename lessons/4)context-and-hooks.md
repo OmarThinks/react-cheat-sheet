@@ -40,8 +40,12 @@ export default ThemeContextProvider;
 
 
 
-# 2) Accessing Context using Context Type (Don't):
+# 2) Accessing Context using Context Type:
 
+
+
+
+## 2-A) Accessing using contextType:
 
 
 <b>
@@ -75,44 +79,10 @@ export default App;
 ```
 
 
-`components/main.js`
-
-```js
-import React, { Component } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
-
-class Main extends Component {
-    static contextType = ThemeContext;
-    render() { 
-        console.log(this.context);
-        const {isLightTheme, light, dark}=this.context;
-        const theme = isLightTheme ? light : dark;
-
-        return ( 
-        <main style={{background:theme.bg, color: theme.syntax}}>
-            <ul>
-                <li>First element</li>
-                <li>Second element</li>
-                <li>Third element</li>
-            </ul>
-
-        </main> );
-    }
-}
- 
-export default Main;
-```
 
 
-
-
-
-
-
-
-
-
-
+This climbs up the component tree, to find the first time 
+there is a provider for this context
 
 `components/navbar.js`
 
@@ -122,10 +92,6 @@ import { ThemeContext } from '../contexts/ThemeContext';
 
 class NavBar extends Component {
     static contextType = ThemeContext;
-    /*
-        This climbs up the component tree, to find the first time 
-        there is a provider for this context
-    */
     render() {
         console.log(this.context);
         const {isLightTheme, light, dark}=this.context;
@@ -145,6 +111,58 @@ class NavBar extends Component {
  
 export default NavBar;
 ```
+
+
+
+
+
+## 2-B) Accessing using ContextConsumer:
+
+`components/main.js`
+
+```js
+import React, { Component } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
+
+class Main extends Component {
+    static contextType = ThemeContext;
+    render() { 
+        return ( 
+        
+        <ThemeContext.Consumer>{(context)=>{
+        console.log(context);
+      
+        const {isLightTheme, light, dark}=context;
+        const theme = isLightTheme ? light : dark;
+            return(
+        <main style={{background:theme.ui, color: theme.syntax}}>
+            <ul>
+                <li style={{background:theme.bg}}>First element</li>
+                <li style={{background:theme.bg}}>Second element</li>
+                <li style={{background:theme.bg}}>Third element</li>
+            </ul>
+
+        </main> 
+            );
+        }}
+        </ThemeContext.Consumer>
+        );
+    }
+}
+ 
+export default Main;
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
