@@ -31,6 +31,22 @@ export default ThemeContextProvider;
 ```
 
 
+</b>
+
+
+
+
+
+
+
+
+# 2) Accessing Context using Context Type (Don't):
+
+
+
+<b>
+
+
 `App.js`
 
 ```js
@@ -59,7 +75,29 @@ export default App;
 ```
 
 
+`components/navbar.js`
+
+```js
+```
+
+
+
+
+
+
+
 
 
 </b>
+
+
+
+
+
+
+
+
+
+
+
 
