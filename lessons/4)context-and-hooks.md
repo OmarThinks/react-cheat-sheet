@@ -154,6 +154,7 @@ export default Main;
 ```
 
 
+</b>
 
 
 
@@ -161,6 +162,40 @@ export default Main;
 
 
 
+# 3) Updating Context:
+
+
+
+<b>
+
+`contexts/ThemeContext.js`
+```js
+import {createContext, Component} from 'react';
+
+export const ThemeContext = createContext();
+
+class ThemeContextProvider extends Component {
+    state = { 
+        isLightTheme:true,
+        light:{syntax: "#555", ui: "#ddd", bg:"#eee"},
+        dark:{syntax: "#ddd", ui: "#333", bg:"#555"},
+    };
+
+    toggleTheme=()=>{
+        this.setState({isLightTheme:!this.state.isLightTheme});
+    }
+
+    render() { 
+        return ( 
+        <ThemeContext.Provider value={
+            {...this.state, toggleTheme:this.toggleTheme}}>
+            {this.props.children}
+        </ThemeContext.Provider> );
+    }
+}
+ 
+export default ThemeContextProvider;
+```
 
 
 
@@ -168,7 +203,25 @@ export default Main;
 
 
 
+`components/ToggleTheme.js`
 
+```js
+import { Component, Fragment } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
+
+class ThemeToggle extends Component {
+    static contextType = ThemeContext;
+    
+    render() {
+        console.log(this.context);
+        const {toggleTheme}=this.context;
+        
+        return <button onClick={toggleTheme}>Toogle the Theme</button>;
+    }
+}
+ 
+export default ThemeToggle;
+```
 
 
 
@@ -180,15 +233,4 @@ export default Main;
 
 
 </b>
-
-
-
-
-
-
-
-
-
-
-
 
