@@ -4,10 +4,12 @@
 
 # 1) Creating a Context Provider:
 
+<b>
 
+`contexts/ThemeContext.js`
 
 ```js
-import React, {createContext} from 'react';
+import React, {createContext, Component} from 'react';
 
 export const ThemeContext = createContext();
 
@@ -20,7 +22,7 @@ class ThemeContextProvider extends Component {
     render() { 
         return ( 
         <ThemeContext.Provider value={{...this.state}}>
-
+            {this.props.children}
         </ThemeContext.Provider> );
     }
 }
@@ -29,5 +31,35 @@ export default ThemeContextProvider;
 ```
 
 
+`App.js`
 
+```js
+import './App.css';
+import { Component } from 'react';
+import Main from './components/main';
+import NavBar from './components/navbar';
+
+import ThemeContextProvider from './contexts/ThemeContext';
+
+class App extends Component {
+  state = {  }
+  render() { 
+      return(
+        <div id="root_div">
+          <ThemeContextProvider>
+            <NavBar></NavBar>
+            <Main></Main>
+          </ThemeContextProvider>
+        </div>        
+     );
+  }
+}
+
+export default App;
+```
+
+
+
+
+</b>
 
