@@ -290,10 +290,9 @@ import { AuthContext } from '../contexts/AuthContext';
 import { ThemeContext } from '../contexts/ThemeContext';
 
 const Main = () => {
-    const themeContext = useContext(ThemeContext);
     const authContext = useContext(AuthContext);
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
     
-    const {isLightTheme, light, dark}=themeContext;
     const theme = isLightTheme ? light : dark;    
     
     return( 
