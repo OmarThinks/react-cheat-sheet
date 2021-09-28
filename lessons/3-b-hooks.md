@@ -317,3 +317,33 @@ export default Main;
 
 
 
+
+
+# 5) Creating Context using Hooks:
+
+
+<b>
+
+```js
+import {createContext, useState} from 'react';
+export const AuthContext = createContext();
+
+const AuthContextProvider = (props) => {
+    
+    const [isAuthenticatedState, setIsAuthenticatedState] = useState({isAuthenticated:false});
+
+    const toggleAuth=()=>{
+        setIsAuthenticatedState({isAuthenticated:!isAuthenticatedState.isAuthenticated});
+    }
+
+    return ( 
+    <AuthContext.Provider value={{...isAuthenticatedState, toggleAuth}}>
+        {props.children}
+    </AuthContext.Provider> );
+}
+ 
+export default AuthContextProvider;
+```
+
+</b>
+
