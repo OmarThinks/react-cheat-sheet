@@ -324,6 +324,7 @@ export default Main;
 
 <b>
 
+`contexts/AuthContext.js`
 ```js
 import {createContext, useState} from 'react';
 export const AuthContext = createContext();
@@ -364,19 +365,45 @@ export default AuthContextProvider;
 ```js
 const productReducer = (state, action) => {
     switch (action.type){
-        case "ADD_PRODUCT": return {...state, {action.product}};
-        case "DELETE_PRODUCT": return {return state;}; //We Will not discuss this here
-        case "EDIT_PRODUCT": return {return state;}; //We Will not discuss this here
+        case "ADD_PRODUCT": return [...state, {action.product}];
+        case "DELETE_PRODUCT": return state; //We Will not discuss this here
+        case "EDIT_PRODUCT": return state; //We Will not discuss this here
         default: return state;
         }
 }
+export {productReducer};
 ```
 </b>
 
 
+# 7) Using Reducer in Context:
 
+<b>
 
+`contexts/ProductContext.js`
+```js
+import {createContext, useState, useReducer} from 'react';
+import {productReducer} from "the place of the reducer";
 
+export const ProductContext = createContext();
+
+const ProductContextProvider = (props) => {
+    
+    const [products, dispatchProducts] = useState(productReducer, [
+     {id:1, name:"Product 1"}, 
+     {id:2, name:"Product 2"}, 
+    ]);
+
+    return ( 
+    <ProductContext.Provider value={{products, dispatchProducts}}>
+        {props.children}
+    </ProductContext.Provider> );
+}
+ 
+export default ProductContextProvider;
+```
+
+</b>
 
 
 
