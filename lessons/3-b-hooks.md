@@ -10,6 +10,7 @@
 ```js
 import React,{useState, useEffect, useContext, useReducer} from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
+import productReducer from "../reducers/ProductReducer.js";
 
 const [products,setProducts]= useState(
     [
@@ -74,11 +75,47 @@ useEffect(()=>{console.log(salary);}, [salary]);
 ```
 
 
+### A-3) useContext:
 
 
+- inputs:
+    - The Context
+-outputs:
+    - the context
+
+```js
+import React,{useState, useEffect, useContext, useReducer} from 'react';
+
+const authContext = useContext(AuthContext);
+```
 
 
+### A-4) useReducer:
 
+To use a Specific Reducer:
+
+- Inputs:
+    - The Reducer
+    - The Initial Value
+    - Function to get the value of the reducer (Optional)
+        - If used, then it will forget about the (Initial Value Parameter)
+- Outputs:
+
+
+```js
+import React,{useState, useEffect, useContext, useReducer} from 'react';
+import productReducer from "../reducers/ProductReducer.js";
+
+const [state, dispatch] = useReducer(productReducer, [
+    {id:1, name:" 1"}, 
+    {id:2, name:"Product 2"}, 
+], //The third Parameter is the default value
+()=> {
+    const localData = localStorage.getItem("products");
+    return localData ? JSON.parse(localData) : [];
+}
+);
+```
 
 
 
