@@ -365,8 +365,9 @@ export default AuthContextProvider;
 ```js
 const productReducer = (state, action) => {
     switch (action.type){
-        case "ADD_PRODUCT": return [...state, {action.product}];
-        case "DELETE_PRODUCT": return state; //We Will not discuss this here
+        case "ADD_PRODUCT": return [...state, {titile:action.title, id: uuid()}];
+        case "DELETE_PRODUCT": return state.filter(
+            product =>{product.id !== action.id});
         case "EDIT_PRODUCT": return state; //We Will not discuss this here
         default: return state;
         }
@@ -389,19 +390,64 @@ export const ProductContext = createContext();
 
 const ProductContextProvider = (props) => {
     
-    const [products, dispatchProducts] = useState(productReducer, [
-     {id:1, name:"Product 1"}, 
+    const [products, dispatch] = useState(productReducer, [
+     {id:1, name:" 1"}, 
      {id:2, name:"Product 2"}, 
     ]);
 
     return ( 
-    <ProductContext.Provider value={{products, dispatchProducts}}>
+    <ProductContext.Provider value={products, dispatch}>
         {props.children}
     </ProductContext.Provider> );
 }
  
 export default ProductContextProvider;
 ```
+
+</b>
+
+
+
+
+
+
+
+# 8) Using Dipatch in Component:
+
+<b>
+
+`components/AddProductForm.js`
+
+```js
+import React,{useState} from 'react';
+import ProductContext from "contexts/ProductContext.js";
+
+const AddProductForm = ({addProduct}) => {
+    
+    const [title,setTitle] = useState("");
+    
+    const submitForm=(e)=>{
+        e.preventDefault();
+        dispatch({type:"ADD_PRODUCT", {title:title}});
+    }
+
+    return ( 
+        <form onSubmit={submitForm}>
+            <label>Product Name: </label>
+            <input type="text" name="name" 
+            value={title} onChange={(e)=>{
+                setTitle(e.target.value);
+            }}
+            required/>
+            <input type="submit" value="Create a Product"/>
+        </form>
+     );
+}
+ 
+export default AddProductForm;
+
+```
+
 
 </b>
 
