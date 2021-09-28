@@ -1,6 +1,105 @@
 # 3-a) Context:
 
 
+# Suumary:
+
+
+
+
+
+
+## A) Consuming Contexts (There is no other way):
+
+
+<b>
+
+`contexts/App.js`
+```js
+import './App.css';
+import { Component } from 'react';
+import Main from './components/main';
+import NavBar from './components/navbar';
+
+import ThemeContextProvider from './contexts/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
+import  AuthContextProvider  from './contexts/AuthContext';
+
+class App extends Component {
+  state = {  }
+  render() { 
+      return(
+        <div id="root_div">
+          <ThemeContextProvider>
+            <AuthContextProvider>
+              <NavBar></NavBar>
+              <Main></Main>
+              <ThemeToggle/>
+            </AuthContextProvider>
+          </ThemeContextProvider>
+        </div>        
+     );
+  }
+}
+
+export default App;
+```
+
+</b>
+
+
+
+
+
+
+
+
+
+## B) Create Context (The hooks way is better):
+
+
+<b>
+
+`contexts/ProductsContext.js`
+```js
+import {createContext, Component} from 'react';
+
+export const ThemeContext = createContext();
+
+class ThemeContextProvider extends Component {
+    state = { 
+        isLightTheme:true,
+        light:{syntax: "#555", ui: "#ddd", bg:"#eee"},
+        dark:{syntax: "#ddd", ui: "#333", bg:"#555"},
+    };
+
+    toggleTheme=()=>{
+        this.setState({isLightTheme:!this.state.isLightTheme});
+    }
+
+    render() { 
+        return ( 
+        <ThemeContext.Provider value={
+            {...this.state, toggleTheme:this.toggleTheme}}>
+            {this.props.children}
+        </ThemeContext.Provider> );
+    }
+}
+ 
+export default ThemeContextProvider;
+```
+
+</b>
+
+
+
+
+
+
+
+# You can read the rest for more details, But so far is enough.
+
+
+
 
 # 1) Creating a Context Provider:
 

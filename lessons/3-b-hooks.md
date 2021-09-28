@@ -390,7 +390,7 @@ export const ProductContext = createContext();
 
 const ProductContextProvider = (props) => {
     
-    const [products, dispatch] = useState(productReducer, [
+    const [products, dispatch] = useReducer(productReducer, [
      {id:1, name:" 1"}, 
      {id:2, name:"Product 2"}, 
     ]);
@@ -453,10 +453,60 @@ export default AddProductForm;
 
 
 
+# 9) Using localStorage:
+
+<b>
+
+```js
+localStorage.setItem("name", "Omar");
+localStorage.getItem("name"); //"Omar"
+
+localStorage.setItem("myBook", JSON.stringify({"id":1, "name":"Hey"}));
+JSON.parse(localStorage.getItem("myBook"))
+```
+
+</b>
 
 
 
 
 
+<b>
+
+`contexts/ProductContext.js`
+```js
+import {createContext, useState, useReducer, useEffect} from 'react';
+import {productReducer} from "the place of the reducer";
+
+export const ProductContext = createContext();
+
+const ProductContextProvider = (props) => {
+    
+    const [products, dispatch] = useReducer(productReducer, [
+     {id:1, name:" 1"}, 
+     {id:2, name:"Product 2"}, 
+    ], //The third Parameter is the default value
+    ()=> {
+        const localData = localStorage.getItem("products");
+        return localData ? JSON.parse(localData) : [];
+    }
+    );
+
+    useEffect(
+        ()=>{
+            localStorage.setItem("products", JSON.stringify(products));
+        }
+        ,[products]);
+
+    return ( 
+    <ProductContext.Provider value={products, dispatch}>
+        {props.children}
+    </ProductContext.Provider> );
+}
+ 
+export default ProductContextProvider;
+```
+
+</b>
 
 
