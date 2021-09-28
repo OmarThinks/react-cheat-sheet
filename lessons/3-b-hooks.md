@@ -347,3 +347,43 @@ export default AuthContextProvider;
 
 </b>
 
+
+
+
+
+
+
+
+
+# 6) Creating a Reducer:
+
+<b>
+
+`reducers/productReducer.js`
+
+```js
+const productReducer = (state, action) => {
+    switch (action.type){
+        case "ADD_PRODUCT": return {...state, {action.product}};
+        case "DELETE_PRODUCT": return {return state;}; //We Will not discuss this here
+        case "EDIT_PRODUCT": return {return state;}; //We Will not discuss this here
+        default: return state;
+        }
+}
+```
+</b>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
