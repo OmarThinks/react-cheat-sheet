@@ -121,6 +121,142 @@ const [state, dispatch] = useReducer(productReducer, [
 
 
 
+
+## B) Files in action:
+
+### B-1) Reducer File (You don't have to do this):
+
+`reducers/ProductReducer.js`
+```js
+const productReducer = (state, action) => {
+    switch (action.type){
+        case "ADD_PRODUCT": return [...state, {titile:action.title, id: uuid()}];
+        case "DELETE_PRODUCT": return state.filter(
+            product =>{product.id !== action.id});
+        case "EDIT_PRODUCT": return state; //We Will not discuss this here
+        default: return state;
+        }
+}
+export {productReducer};
+```
+
+
+### B-2) Context File:
+
+`contexts/ProductContext.js`
+```js
+import {createContext, useReducer, useEffect} from 'react';
+import {productReducer} from "the place of the reducer";
+
+export const ProductContext = createContext();
+
+const ProductContextProvider = (props) => {
+    
+    const [state, dispatch] = useReducer(productReducer, [
+     {id:1, name:" 1"}, 
+     {id:2, name:"Product 2"}, 
+    ], //The third Parameter is the default value
+    ()=> {
+        const localData = localStorage.getItem("products");
+        return localData ? JSON.parse(localData) : [];
+    }
+    );
+
+    useEffect(
+        ()=>{
+            localStorage.setItem("products", JSON.stringify(state));
+        }
+        ,[state]);
+
+    return ( 
+    <ProductContext.Provider value={state, dispatch}>
+        {props.children}
+    </ProductContext.Provider> );
+}
+ 
+export default ProductContextProvider;
+```
+
+
+
+### B-3) Context File:
+
+`contexts/ProductContext.js`
+```js
+import {createContext, useState, useReducer, useEffect} from 'react';
+import {productReducer} from "the place of the reducer";
+
+export const ProductContext = createContext();
+
+const ProductContextProvider = (props) => {
+    
+    const [state, dispatch] = useReducer(productReducer, [
+     {id:1, name:" 1"}, 
+     {id:2, name:"Product 2"}, 
+    ], //The third Parameter is the default value
+    ()=> {
+        const localData = localStorage.getItem("products");
+        return localData ? JSON.parse(localData) : [];
+    }
+    );
+
+    useEffect(
+        ()=>{
+            localStorage.setItem("products", JSON.stringify(state));
+        }
+        ,[state]);
+
+    return ( 
+    <ProductContext.Provider value={state, dispatch}>
+        {props.children}
+    </ProductContext.Provider> );
+}
+ 
+export default ProductContextProvider;
+```
+
+
+
+
+
+### B-4) Component File:
+
+
+`components/AddProductForm.js`
+
+```js
+import React,{useState} from 'react';
+import ProductContext from "contexts/ProductContext.js";
+
+const AddProductForm = ({addProduct}) => {
+    
+    const [title,setTitle] = useState("");
+    
+    const submitForm=(e)=>{
+        e.preventDefault();
+        dispatch({type:"ADD_PRODUCT", {title:title}});
+    }
+
+    return ( 
+        <form onSubmit={submitForm}>
+            <label>Product Name: </label>
+            <input type="text" name="name" 
+            value={title} onChange={(e)=>{
+                setTitle(e.target.value);
+            }}
+            required/>
+            <input type="submit" value="Create a Product"/>
+        </form>
+     );
+}
+ 
+export default AddProductForm;
+
+```
+
+
+
+
 </b>
 
 
