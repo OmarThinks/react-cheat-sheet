@@ -1,5 +1,94 @@
 # 3-b) Hooks:
 
+# Summary:
+
+
+## A) Hooks Functions:
+
+<b>
+
+```js
+import React,{useState, useEffect, useContext, useReducer} from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
+
+const [products,setProducts]= useState(
+    [
+        {name:"CPU",    id: 1},
+        {name:"Labtop", id: 2},
+        {name:"Mobile", id: 3},
+    ]
+);
+
+useEffect(()=>{console.log(salary);}, [salary]);
+
+const authContext = useContext(AuthContext);
+
+const [state, dispatch] = useReducer(productReducer, [
+    {id:1, name:" 1"}, 
+    {id:2, name:"Product 2"}, 
+], //The third Parameter is the default value
+()=> {
+    const localData = localStorage.getItem("products");
+    return localData ? JSON.parse(localData) : [];
+}
+);
+```
+
+</b>
+<b>
+
+
+### A-1) useState:
+
+
+- inputs:
+    - initalState
+
+```js
+import React,{useState, useEffect, useContext, useReducer} from 'react';
+
+const [products,setProducts]= useState(
+    [
+        {name:"CPU",    id: 1},
+        {name:"Labtop", id: 2},
+        {name:"Mobile", id: 3},
+    ]
+);
+```
+
+
+### A-2) useEffect:
+
+
+- inputs:
+    - function:
+        - To be executed every time the states are updated, or every  
+        time the all the states are updated
+    - list of state (Optional):
+        - Only if these states are updated, then the function will be executed
+
+```js
+import React,{useState, useEffect, useContext, useReducer} from 'react';
+
+useEffect(()=>{console.log(salary);}, [salary]);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+</b>
+
+
+# You can read the rest for more details, But so far is enough.
+
 
 # 1) useState Hook:
 
