@@ -17,3 +17,5 @@
 ## [3-2) Hooks](lessons/3-b-hooks.md)
 
 
+
+# [Tricks](lessons/tricks.md)
